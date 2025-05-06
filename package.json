@@ -1,0 +1,25 @@
+{
+  "name": "testing-with-jest",
+  "version": "1.0.0",
+  "description": "assignment5",
+  "main": "src/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandeen92/testing-with-jest.git"
+  },
+  "keywords": [
+    "Assignment5"
+  ],
+  "author": "Simon Sanden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sandeen92/testing-with-jest/issues"
+  },
+  "homepage": "https://github.com/Sandeen92/testing-with-jest#readme"
+}
