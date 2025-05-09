@@ -34,3 +34,34 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+describe("Pushing 3 times then popping 3 times and peeking", () => {
+    it('should open a prompt box', async () => {
+            for (let i = 0; i<3; i++){
+            let push = await driver.findElement(By.id('push'));
+            await push.click();
+            let alert = await driver.switchTo().alert();
+            let str = "";
+            if (i===0){
+                str = "uno";
+            }
+            if (i===1){
+                str = "zwei";
+            }
+            if (i===2){
+                str = "три";
+            }
+            await alert.sendKeys(str);
+            await alert.accept();
+        }
+
+        for (let i = 0; i<3; i++){
+            let pop = await driver.findElement(By.id('pop'));
+            await pop.click();
+            await alert.accept();
+        }
+        let peek = await driver.findElement(By.id('peek'));
+        let result = await peek.click();
+        expect(result).toEqual("undefined");
+    });
+});

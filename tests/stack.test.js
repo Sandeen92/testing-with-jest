@@ -17,3 +17,14 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+//FIFO TEST
+test('pushing 3 times then popping 2 times on stack should return the first element pushed', () => {
+    stack.push("uno");
+    stack.push("zwei");
+    stack.push("три");
+    stack.pop();
+    stack.pop();
+    expect(stack.peek()).toBeDefined();
+    expect(stack.peek()).toBe("три");
+})
