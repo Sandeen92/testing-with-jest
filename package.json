@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest tests"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,14 +24,19 @@
   "homepage": "https://github.com/Sandeen92/testing-with-jest#readme",
   "dependencies": {
     "geckodriver": "^5.0.0",
+    "mocha": "11.2.2",
     "selenium-webdriver": "^4.32.0",
     "underscore": "^1.13.7"
   },
   "devDependencies": {
+    "chromedriver": "^136.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "html-webpack-plugin": "^5.6.3",
     "jest": "^29.7.0",
     "webpack": "^5.99.7",
     "webpack-cli": "^6.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

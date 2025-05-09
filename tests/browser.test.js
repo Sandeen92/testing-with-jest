@@ -1,7 +1,9 @@
 const { Builder, By, until } = require('selenium-webdriver');
 require('geckodriver');
 
-const fileUnderTest = 'file://' + __dirname.replace(/ /g, '%20') + '/../dist/index.html';
+// Här anger vi var testfilen ska hämtas. De konstiga replaceAll-funktionerna ersätter
+// mellanslag med URL-säkra '%20' och backslash (\) på Windows med slash (/).
+const fileUnderTest = 'file://' + __dirname.replaceAll(/ /g, '%20').replaceAll(/\\/g, '/') + '/../dist/index.html';
 const defaultTimeout = 10000;
 let driver;
 jest.setTimeout(1000 * 60 * 5); // 5 minuter
