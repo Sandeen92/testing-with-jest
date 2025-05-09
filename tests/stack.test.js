@@ -26,5 +26,5 @@ test('pushing 3 times then popping 2 times on stack should return the first elem
     stack.pop();
     stack.pop();
     expect(stack.peek()).toBeDefined();
-    expect(stack.peek()).toBe("три");
+    expect(stack.peek()).toBe("uno");
 })
