@@ -35,26 +35,25 @@ describe('Clicking "Pusha till stacken"', () => {
     });
 });
 
-// TESTING ALL BUTTONS IN SEQUENCE
-describe("Pushing 3 times then popping 3 times and peeking", () => {
-    it('should open a prompt box', async () => {    
-        for (let i = 0; i<3; i++){
-            let push = await driver.findElement(By.id('push'));
-            await push.click();
-            let alert = await driver.switchTo().alert();
-            await alert.sendKeys(toString(i));
-            await alert.accept();
-        }
+//La till lite felhantering i index.js för detta
+describe('Canceling a prompt does not change the stack display', () => {
+    it('should preserve the stack display if the prompt is canceled', async () => {
+        const push = await driver.findElement(By.id('push'));
 
-        for (let i = 0; i<3; i++){
-            let pop = await driver.findElement(By.id('pop'));
-            await pop.click();
-            let alert = await driver.switchTo().alert();
-            await alert.accept();
-        }
+        await push.click();
+        let alert1 = await driver.switchTo().alert();
+        await alert1.sendKeys("Kylarspraj");
+        await alert1.accept();
 
-        let peek = await driver.findElement(By.id('peek'));
-        let result = await peek.click();
-        expect(result).toEqual(null);
+        const displayBefore = await driver.findElement(By.id('top_of_stack')).getText();
+
+        await push.click();
+        let alert2 = await driver.switchTo().alert();
+        await alert2.sendKeys("FlaeskigFontanell");
+        await alert2.dismiss();
+
+        const displayAfter = await driver.findElement(By.id('top_of_stack')).getText();
+
+        expect(displayAfter).toBe("");
     });
 });
