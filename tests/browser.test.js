@@ -35,7 +35,7 @@ describe('Clicking "Pusha till stacken"', () => {
     });
 });
 
-//La till lite felhantering i index.js för detta
+//La till lite felhantering i index.js
 describe('Canceling a prompt does not change the stack display', () => {
     it('should preserve the stack display if the prompt is canceled', async () => {
         const push = await driver.findElement(By.id('push'));
@@ -54,6 +54,6 @@ describe('Canceling a prompt does not change the stack display', () => {
 
         const displayAfter = await driver.findElement(By.id('top_of_stack')).getText();
 
-        expect(displayAfter).toBe("");
+        expect(displayAfter).toBe(displayBefore);
     });
 });
